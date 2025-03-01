@@ -43,7 +43,7 @@ $ca_lam_viec = $conn->query("SELECT * FROM ca_lam_viec"); ?>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $conn = mysqli_connect('localhost', 'root', "", 'quanlychamcong') or die('không thể kết nối sql');
+                                    $conn = mysqli_connect('localhost', 'root', "Chinh@1234", 'quanlychamcong') or die('không thể kết nối sql');
                                     $sql = "select * from luong";
                                     $result = mysqli_query($conn, $sql);
                                     $s = 0;

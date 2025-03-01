@@ -1,6 +1,6 @@
 <?php
 require 'header.php';
-$conn = mysqli_connect("localhost", "root", "chinh@240203", "quanlychamcong");
+$conn = mysqli_connect("localhost", "root", "Chinh@1234", "quanlychamcong");
 
 $username = $_SESSION['username'];
 $nextWeekStart = date("Y-m-d", strtotime("next Monday"));

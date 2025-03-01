@@ -59,7 +59,7 @@ $ca_lam_viec = $conn->query("SELECT * FROM ca_lam_viec"); ?>
                                     <tbody>
                                     <?php
                                     //Kết nối máy chủ MySQL.
-                                    $conn = mysqli_connect('localhost', 'root', "chinh@240203", 'quanlychamcong') or die('không thể kết nối sql');
+                                    $conn = mysqli_connect('localhost', 'root', "Chinh@1234", 'quanlychamcong') or die('không thể kết nối sql');
                                     $date = '%';
                                     if (isset($_POST['date'])) {
                                         $date = '%' . $_POST['date'] . '%';

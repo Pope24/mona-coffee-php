@@ -129,7 +129,7 @@
         if (isset($_POST['btn'])) {
             $user = $_POST['user'];
             $pass = $_POST['pass'];
-            $conn = mysqli_connect('localhost', 'root', "chinh@240203", 'quanlychamcong');
+            $conn = mysqli_connect('localhost', 'root', "Chinh@1234", 'quanlychamcong');
             $sql = " select * from users where username='$user'";
             $result = mysqli_query($conn, $sql);
             $num_rows = mysqli_num_rows($result);

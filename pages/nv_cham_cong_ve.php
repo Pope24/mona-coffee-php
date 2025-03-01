@@ -6,7 +6,7 @@ $username = $_SESSION['username'];
 $today = date("Y-m-d");
 $currentTime = date("H:i:s");
 
-$conn = mysqli_connect("localhost", "root", "chinh@240203", "quanlychamcong");
+$conn = mysqli_connect("localhost", "root", "Chinh@1234", "quanlychamcong");
 $sql = "UPDATE cham_cong SET gio_nghi = '$currentTime' WHERE Ngay = '$today' AND Ma_nv = '$username'";
 $result = mysqli_query($conn, $sql);
 

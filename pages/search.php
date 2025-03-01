@@ -28,7 +28,7 @@
     <tbody>
     <?php
     /*Kết nối máy chủ MySQL. Máy chủ có cài đặt mặc định (user là 'root' và không có mật khẩu)*/
-    $link = mysqli_connect("localhost", "root", "", "demo");
+    $link = mysqli_connect("localhost", "root", "Chinh@1234", "quanlychamcong");
  
     // Kểm tra kết nối
     if ($link === false) {

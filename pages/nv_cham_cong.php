@@ -13,7 +13,7 @@ function getPublicIP() {
 $username = $_SESSION['username'];
 $today = date("Y-m-d");
 $currentTime = date("H:i:s");
-$conn = mysqli_connect("localhost","root","chinh@240203","quanlychamcong");
+$conn = mysqli_connect("localhost","root","Chinh@1234","quanlychamcong");
 $sql = " select * from cham_cong where Ngay='$today' and Ma_nv = '$username'";
 $kq_con = mysqli_query($conn, $sql);
 $dem = mysqli_num_rows($kq_con);

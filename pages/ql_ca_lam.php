@@ -45,7 +45,7 @@ $ca_lam_viec = $conn->query("SELECT * FROM ca_lam_viec"); ?>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $conn = mysqli_connect('localhost', 'root', "chinh@240203", 'quanlychamcong') or die('không thể kết nối sql');
+                                    $conn = mysqli_connect('localhost', 'root', "Chinh@1234", 'quanlychamcong') or die('không thể kết nối sql');
                                     $sql = " select * from ca_lam_viec";
                                     $result = mysqli_query($conn, $sql);
                                     $s = 0;

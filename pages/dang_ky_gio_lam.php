@@ -1,6 +1,6 @@
 <?php require 'header.php'?>
 <?php
-$conn = mysqli_connect("localhost", "root", "chinh@240203", "quanlychamcong");
+$conn = mysqli_connect("localhost", "root", "Chinh@1234", "quanlychamcong");
 
 if (!$conn) {
     die("Kết nối database thất bại: " . mysqli_connect_error());

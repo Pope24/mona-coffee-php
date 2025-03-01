@@ -1,6 +1,6 @@
 <?php
 $id = $_GET['x'];
-$conn = mysqli_connect("localhost", "root", "", "quanlychamcong");
+$conn = mysqli_connect("localhost", "root", "Chinh@1234", "quanlychamcong");
 $sql = " UPDATE nhan_luong SET Tinh_trang ='Đã thanh toán' where ID = '$id'";
 $result = mysqli_query($conn, $sql);
 if ($result == true) {

@@ -34,7 +34,7 @@ function nghiviec()
 function search()
 {
   //Kết nối cơ sở dữ liệu
-  $conn = mysqli_connect("localhost", "root", "", "quanlychamcong"); 
+  $conn = mysqli_connect("localhost", "root", "Chinh@1234", "quanlychamcong");
   //Truy vấn dữ liệu
   if (isset($_GET['search']) && !empty($_GET['search'])) 
   {

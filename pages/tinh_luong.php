@@ -3,7 +3,7 @@ $manv = $_GET['Manv'];
 $hs = $_GET['Hs'];
 $tong = $_GET['Tong'];
 $days = $_GET['Day'];
-$conn = mysqli_connect("localhost", "root", "", "quanlychamcong");
+$conn = mysqli_connect("localhost", "root", "Chinh@1234", "quanlychamcong");
 //Số day đi làm
 // $day = $conn->query("SELECT * FROM cham_cong where Ma_nv = '$manv'");
 // $days = $day->num_rows;

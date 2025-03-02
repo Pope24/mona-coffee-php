@@ -5,8 +5,13 @@ $soluongnv = $nv->num_rows;
 $today = date("d/m/Y");
 $thuong = $conn->query("SELECT * FROM `nhan_luong`");
 $tong_doanh_thu = 0;
+$showContent = true;
+$username = $_SESSION['username'];
 $doanh_thu_thang = 0;
 $days = 0;
+if (strpos($username, 'NV') !== false) {
+    $showContent = false;
+}
 while ($row = $thuong->fetch_assoc()) {
   $days += $row['So_ngay_lam'];
   if ($row['Tinh_trang'] == 'Đã thanh toán') {
@@ -40,101 +45,103 @@ while ($row = $thuong->fetch_assoc()) {
   <!-- /.content-header -->
 
   <!-- Main content -->
-  <section class="content">
-    <div class="container-fluid">
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-primary">
-            <div class="inner">
-              <h3><?php echo number_format($tong_doanh_thu, 0) . ' đ' ?></h3>
-              <p>Tổng chi</p>
+  <?php if ($showContent): ?>
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-primary">
+                        <div class="inner">
+                            <h3><?php echo number_format($tong_doanh_thu, 0) . ' đ' ?></h3>
+                            <p>Tổng chi</p>
+
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                        <a href="thong_ke_luong.php" class="small-box-footer">Chi tiết<i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3><?php echo number_format($doanh_thu_thang) . ' đ' ?></h3>
+                            <p>THÁNG <?php echo date('m/Y') ?> </p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a href="thong_ke.php" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3> <?php
+                                echo $soluongnv;
+                                ?></h3>
+                            <p>NHÂN VIÊN</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="ql_nhan_vien.php" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3><?php echo ($days) ?></h3>
+                            <p>SỐ NGÀY LÀM VIỆC NHÂN VIÊN</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+                        <a href="thong_ke.php" class="small-box-footer">Chi tiết<i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+            <!-- Main row -->
+            <div class="row">
 
             </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-            <a href="thong_ke_luong.php" class="small-box-footer">Chi tiết<i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-success">
-            <div class="inner">
-              <h3><?php echo number_format($doanh_thu_thang) . ' đ' ?></h3>
-              <p>THÁNG <?php echo date('m/Y') ?> </p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="thong_ke.php" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-warning">
-            <div class="inner">
-              <h3> <?php
-                    echo $soluongnv;
-                    ?></h3>
-              <p>NHÂN VIÊN</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-person-add"></i>
-            </div>
-            <a href="ql_nhan_vien.php" class="small-box-footer">Chi tiết <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-danger">
-            <div class="inner">
-              <h3><?php echo ($days) ?></h3>
-              <p>SỐ NGÀY LÀM VIỆC NHÂN VIÊN</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-pie-graph"></i>
-            </div>
-            <a href="thong_ke.php" class="small-box-footer">Chi tiết<i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-        <!-- ./col -->
-      </div>
-      <!-- /.row -->
-      <!-- Main row -->
-      <div class="row">
+            <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+        <!-- Bar chart -->
+        <!-- <div class="card card-primary card-outline">
+          <div class="card-header">
+            <h3 class="card-title">
+              <i class="far fa-chart-bar"></i>
+              Biểu đồ
+            </h3>
 
-      </div>
-      <!-- /.row (main row) -->
-    </div><!-- /.container-fluid -->
-    <!-- Bar chart -->
-    <!-- <div class="card card-primary card-outline">
-      <div class="card-header">
-        <h3 class="card-title">
-          <i class="far fa-chart-bar"></i>
-          Biểu đồ
-        </h3>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <div class="card-body">
+            <canvas id="graph"></canvas>
+          </div>
 
-        <div class="card-tools">
-          <button type="button" class="btn btn-tool" data-card-widget="collapse">
-            <i class="fas fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-tool" data-card-widget="remove">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-      </div>
-      <div class="card-body">
-        <canvas id="graph"></canvas>
-      </div>
-
-    </div> -->
-    <!-- /.card -->
-  </section>
+        </div> -->
+        <!-- /.card -->
+    </section>
+  <?php endif; ?>
   <!-- /.content -->
 
 </div>
